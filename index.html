@@ -648,9 +648,10 @@
   @keyframes kenBurns{from{transform:scale(1.02);}to{transform:scale(1.11);}}
   @media (prefers-reduced-motion: reduce){.hero-zoom{animation:none;}}
 
-  /* parcel illustrations — hand-drawn aerial-style SVGs, framed as a distinct "technical view" */
+  /* parcel imagery — either a hand-drawn aerial-style SVG or a real satellite photo, framed the same way */
   .prop-media.map-style svg{width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
   .prop-card:hover .prop-media.map-style svg{transform:scale(1.08);}
+  .prop-media.map-style img{filter:sepia(.25) saturate(1.15) hue-rotate(-6deg) contrast(1.05) brightness(.96);}
   .prop-media.map-style::after{
     content:"";position:absolute;inset:8px;z-index:1;pointer-events:none;
     border:1px dashed rgba(200,162,74,0.55);border-radius:2px;
@@ -936,23 +937,10 @@
 
       <div class="prop-card reveal d2 tilt" data-category="agricola">
         <div class="prop-media map-style">
-          <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustracion aerea del Campo Agricola Roque Perez">
-            <defs>
-              <pattern id="till2" width="7" height="7" patternTransform="rotate(-18)" patternUnits="userSpaceOnUse"><rect width="7" height="7" fill="#5e4b33"></rect><line x1="0" y1="0" x2="0" y2="7" stroke="#4c3c27" stroke-width="2.2"></line></pattern>
-              <radialGradient id="vig2" cx="50%" cy="45%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"></stop><stop offset="100%" stop-color="#000" stop-opacity=".3"></stop></radialGradient>
-              <filter id="grain2"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
-            </defs>
-            <rect width="400" height="240" fill="url(#till2)"></rect>
-            <g stroke="#3a2e1e" stroke-width=".6" opacity=".35"><line x1="0" y1="30" x2="400" y2="10"></line><line x1="0" y1="70" x2="400" y2="50"></line><line x1="0" y1="110" x2="400" y2="90"></line><line x1="0" y1="150" x2="400" y2="130"></line><line x1="0" y1="190" x2="400" y2="170"></line><line x1="0" y1="228" x2="400" y2="208"></line></g>
-            <g fill="#243a20"><ellipse cx="330" cy="182" rx="16" ry="12"></ellipse><ellipse cx="352" cy="176" rx="13" ry="10"></ellipse><ellipse cx="344" cy="196" rx="14" ry="11"></ellipse><ellipse cx="366" cy="192" rx="11" ry="9"></ellipse><ellipse cx="318" cy="200" rx="10" ry="8"></ellipse></g>
-            <path d="M300,168 Q330,158 372,166 L376,214 Q330,224 296,212 Z" fill="none" stroke="#c8a24a" stroke-width="1" stroke-dasharray="4 3" opacity=".7"></path>
-            <g transform="translate(38,34)" opacity=".85"><circle r="15" fill="none" stroke="#c8a24a" stroke-width="1"></circle><line x1="0" y1="-15" x2="0" y2="15" stroke="#c8a24a" stroke-width="1"></line><line x1="-15" y1="0" x2="15" y2="0" stroke="#c8a24a" stroke-width="1"></line><text x="0" y="-19" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#c8a24a">N</text></g>
-            <rect width="400" height="240" filter="url(#grain2)" opacity=".045"></rect>
-            <rect width="400" height="240" fill="url(#vig2)"></rect>
-          </svg>
+          <img src="images/roque-perez-agricola.jpg" alt="Campo agrícola Roque Pérez" data-lightbox data-caption="Campo Agrícola — Roque Pérez · 23,69 ha · vista satelital, límites de referencia">
           <span class="status venta">Venta</span>
           <span class="plate"><b>23,69</b> ha</span>
-          <span class="plate sat-tag">Vista aérea · ilustrativa</span>
+          <span class="plate sat-tag">Vista satelital</span>
         </div>
         <div class="prop-body">
           <div class="prop-loc">Roque Pérez · Buenos Aires</div>
