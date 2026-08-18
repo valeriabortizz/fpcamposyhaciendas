@@ -678,7 +678,7 @@
     transform:scale(.94);transition:transform .35s cubic-bezier(.2,.8,.2,1);
   }
   .lightbox.open .lightbox-frame{transform:scale(1);}
-  .lightbox-frame img{max-width:min(1100px,92vw);max-height:86vh;width:auto;height:auto;object-fit:contain;}
+  .lightbox-frame img, .lightbox-frame video{max-width:min(1100px,92vw);max-height:86vh;width:auto;height:auto;object-fit:contain;display:block;}
   .lightbox-caption{
     position:absolute;left:0;right:0;bottom:0;padding:14px 20px;
     background:linear-gradient(0deg, rgba(19,12,7,0.85), transparent);
@@ -692,6 +692,20 @@
   }
   .lightbox-close:hover{background:rgba(247,245,240,0.22);transform:rotate(90deg);}
   @media (prefers-reduced-motion: reduce){.lightbox,.lightbox-frame,.lightbox-close{transition:opacity .15s ease;}}
+
+  /* ---------- video thumbnail badge ---------- */
+  .play-badge{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    z-index:2;display:flex;align-items:center;gap:8px;
+    background:rgba(33,19,9,0.72);color:var(--white);
+    border:1px solid rgba(247,245,240,0.4);border-radius:999px;
+    padding:10px 18px 10px 12px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+    cursor:pointer;backdrop-filter:blur(2px);
+    transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+  }
+  .play-badge svg{width:22px;height:22px;flex-shrink:0;}
+  .play-badge:hover{background:var(--evergreen);transform:translate(-50%,-50%) scale(1.07);box-shadow:0 10px 24px -8px rgba(0,0,0,0.5);}
 
   /* ---------- functional filter bar ---------- */
   .filter-bar span{cursor:pointer;user-select:none;transition:background .2s ease, color .2s ease;}
@@ -979,30 +993,10 @@
 
       <div class="prop-card reveal d2 tilt" data-category="mixto">
         <div class="prop-media map-style">
-          <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustracion aerea del Campo Mixto en Larre, Roque Perez">
-            <defs>
-              <pattern id="till4" width="7" height="7" patternTransform="rotate(20)" patternUnits="userSpaceOnUse"><rect width="7" height="7" fill="#5c4a34"></rect><line x1="0" y1="0" x2="0" y2="7" stroke="#4a3b28" stroke-width="2.2"></line></pattern>
-              <linearGradient id="pasture4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3d5636"></stop><stop offset="100%" stop-color="#2b3f27"></stop></linearGradient>
-              <radialGradient id="vig4" cx="50%" cy="45%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"></stop><stop offset="100%" stop-color="#000" stop-opacity=".3"></stop></radialGradient>
-              <filter id="grain4"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
-            </defs>
-            <rect width="400" height="240" fill="url(#till4)"></rect>
-            <rect x="0" y="176" width="400" height="64" fill="url(#pasture4)"></rect>
-            <line x1="0" y1="176" x2="400" y2="168" stroke="#c8a24a" stroke-width="1.2" stroke-dasharray="5 4" opacity=".75"></line>
-            <path d="M0,60 C90,50 130,90 190,78 C260,64 300,30 400,44" fill="none" stroke="#6f8a94" stroke-width="7" opacity=".85"></path>
-            <path d="M0,60 C90,50 130,90 190,78 C260,64 300,30 400,44" fill="none" stroke="#8fa8b0" stroke-width="2" opacity=".6"></path>
-            <g transform="translate(300,120)" stroke="#efe9dd" stroke-width="1.6" fill="none" opacity=".9">
-              <line x1="0" y1="0" x2="0" y2="34"></line>
-              <line x1="-9" y1="0" x2="9" y2="0"></line><line x1="-6.3" y1="-6.3" x2="6.3" y2="6.3"></line><line x1="-6.3" y1="6.3" x2="6.3" y2="-6.3"></line>
-              <circle cx="0" cy="0" r="1.6" fill="#efe9dd" stroke="none"></circle>
-            </g>
-            <g transform="translate(38,34)" opacity=".85"><circle r="15" fill="none" stroke="#c8a24a" stroke-width="1"></circle><line x1="0" y1="-15" x2="0" y2="15" stroke="#c8a24a" stroke-width="1"></line><line x1="-15" y1="0" x2="15" y2="0" stroke="#c8a24a" stroke-width="1"></line><text x="0" y="-19" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#c8a24a">N</text></g>
-            <rect width="400" height="240" filter="url(#grain4)" opacity=".045"></rect>
-            <rect width="400" height="240" fill="url(#vig4)"></rect>
-          </svg>
+          <img src="images/roque-perez-mixto-larre.jpg" alt="Campo Mixto en Larre, Roque Pérez" data-lightbox data-caption="Campo Mixto — Larre, Roque Pérez · 245 ha · vista satelital, límites de referencia">
           <span class="status venta">Venta</span>
           <span class="plate"><b>245</b> ha</span>
-          <span class="plate sat-tag">Vista aérea · ilustrativa</span>
+          <span class="plate sat-tag">Vista satelital</span>
         </div>
         <div class="prop-body">
           <div class="prop-loc">Larre, Roque Pérez · Buenos Aires</div>
@@ -1018,33 +1012,14 @@
       </div>
       <div class="prop-card reveal d3 tilt" data-category="ganadero">
         <div class="prop-media map-style">
-          <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustracion aerea del Campo Ganadero en Salvador Maria, Lobos">
-            <defs>
-              <linearGradient id="pasture5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3d5636"></stop><stop offset="100%" stop-color="#263a22"></stop></linearGradient>
-              <radialGradient id="vig5" cx="50%" cy="45%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"></stop><stop offset="100%" stop-color="#000" stop-opacity=".32"></stop></radialGradient>
-              <filter id="grain5"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
-            </defs>
-            <rect width="400" height="240" fill="url(#pasture5)"></rect>
-            <path d="M-10,210 C60,190 90,150 60,110 C30,70 90,50 140,58 C200,68 190,20 260,10" fill="none" stroke="#5f7a86" stroke-width="20" opacity=".9"></path>
-            <path d="M-10,210 C60,190 90,150 60,110 C30,70 90,50 140,58 C200,68 190,20 260,10" fill="none" stroke="#7c99a3" stroke-width="4" opacity=".55"></path>
-            <g stroke="#c8a24a" stroke-width="1.1" fill="none" opacity=".85">
-              <rect x="270" y="150" width="34" height="24"></rect>
-              <rect x="308" y="150" width="24" height="24"></rect>
-              <line x1="286" y1="174" x2="286" y2="198"></line><line x1="298" y1="174" x2="298" y2="198"></line>
-            </g>
-            <g transform="translate(300,110)" stroke="#efe9dd" stroke-width="1.6" fill="none" opacity=".9">
-              <line x1="0" y1="0" x2="0" y2="30"></line>
-              <line x1="-8" y1="0" x2="8" y2="0"></line><line x1="-5.6" y1="-5.6" x2="5.6" y2="5.6"></line><line x1="-5.6" y1="5.6" x2="5.6" y2="-5.6"></line>
-              <circle cx="0" cy="0" r="1.4" fill="#efe9dd" stroke="none"></circle>
-              <circle cx="16" cy="30" r="6" opacity=".8"></circle>
-            </g>
-            <g transform="translate(362,32)" opacity=".85"><circle r="15" fill="none" stroke="#c8a24a" stroke-width="1"></circle><line x1="0" y1="-15" x2="0" y2="15" stroke="#c8a24a" stroke-width="1"></line><line x1="-15" y1="0" x2="15" y2="0" stroke="#c8a24a" stroke-width="1"></line><text x="0" y="-19" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#c8a24a">N</text></g>
-            <rect width="400" height="240" filter="url(#grain5)" opacity=".045"></rect>
-            <rect width="400" height="240" fill="url(#vig5)"></rect>
-          </svg>
+          <img src="images/lobos-ganadero-salvador-maria.jpg" alt="Campo Ganadero en Salvador María, Lobos" data-lightbox data-caption="Campo Ganadero — Salvador María, Lobos · 134 ha · costa del Río Salado">
           <span class="status venta">Venta</span>
           <span class="plate"><b>134</b> ha</span>
-          <span class="plate sat-tag">Vista aérea · ilustrativa</span>
+          <span class="plate sat-tag">Vista satelital</span>
+          <button class="play-badge" data-video="videos/campo-ganadero-lobos.mp4" data-video-caption="Campo Ganadero — Salvador María, Lobos" aria-label="Ver video del campo">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 8.5v7l6-3.5-6-3.5Z"/></svg>
+            Ver video
+          </button>
         </div>
         <div class="prop-body">
           <div class="prop-loc">Zona Salvador María, Lobos · Buenos Aires</div>
@@ -1220,6 +1195,7 @@
   </button>
   <div class="lightbox-frame">
     <img src="" alt="" id="lightboxImg">
+    <video id="lightboxVideo" controls playsinline style="display:none"></video>
     <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
 </div>
@@ -1358,31 +1334,50 @@
     });
   }
 
-  // ---------- lightbox ----------
+  // ---------- lightbox (photos + video) ----------
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxVideo = document.getElementById('lightboxVideo');
   const lightboxCaption = document.getElementById('lightboxCaption');
   const lightboxClose = document.getElementById('lightboxClose');
   let lastFocused = null;
-  function openLightbox(trigger){
-    const img = trigger.tagName === 'IMG' ? trigger : trigger.querySelector('img');
-    if(!img) return;
+  function openLightboxCommon(caption){
     lastFocused = document.activeElement;
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt || '';
-    lightboxCaption.textContent = trigger.dataset.caption || img.alt || '';
-    lightboxCaption.style.display = lightboxCaption.textContent ? 'block' : 'none';
+    lightboxCaption.textContent = caption || '';
+    lightboxCaption.style.display = caption ? 'block' : 'none';
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
+  }
+  function openLightbox(trigger){
+    const img = trigger.tagName === 'IMG' ? trigger : trigger.querySelector('img');
+    if(!img) return;
+    lightboxVideo.pause();
+    lightboxVideo.style.display = 'none';
+    lightboxImg.style.display = '';
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt || '';
+    openLightboxCommon(trigger.dataset.caption || img.alt || '');
+  }
+  function openLightboxVideo(trigger){
+    const src = trigger.dataset.video;
+    if(!src) return;
+    lightboxImg.style.display = 'none';
+    lightboxVideo.style.display = '';
+    if(lightboxVideo.getAttribute('src') !== src) lightboxVideo.setAttribute('src', src);
+    openLightboxCommon(trigger.dataset.videoCaption || '');
+    lightboxVideo.play().catch(() => {});
   }
   function closeLightbox(){
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden','true');
     document.body.style.overflow = '';
+    lightboxVideo.pause();
     if(lastFocused) lastFocused.focus();
   }
   document.addEventListener('click', (e) => {
+    const videoTrigger = e.target.closest('[data-video]');
+    if(videoTrigger){ openLightboxVideo(videoTrigger); return; }
     const trigger = e.target.closest('[data-lightbox]');
     if(trigger){ openLightbox(trigger); return; }
     if(e.target === lightbox) closeLightbox();
