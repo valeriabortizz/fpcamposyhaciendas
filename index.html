@@ -556,6 +556,16 @@
   .mk-sub{margin-top:10px;font-size:.78rem;color:rgba(247,245,240,0.55);}
   .market-note{font-size:.84rem;color:rgba(247,245,240,0.62);line-height:1.6;}
   .market-note a{color:var(--gold);font-weight:600;}
+  .price-panel{margin-top:24px;}
+  .price-table-wrap{overflow-x:auto;margin-top:28px;-webkit-overflow-scrolling:touch;}
+  .price-table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:560px;}
+  .price-table th{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:rgba(247,245,240,0.55);border-bottom:1px solid rgba(247,245,240,0.16);padding:9px 14px;text-align:left;white-space:nowrap;}
+  .price-table td{padding:9px 14px;color:rgba(247,245,240,0.85);border-bottom:1px solid rgba(247,245,240,0.08);white-space:nowrap;}
+  .price-table td.num{font-family:'JetBrains Mono',monospace;font-size:.82rem;}
+  .price-table td.muted{color:rgba(247,245,240,0.35);}
+  .price-table tr.cat-row td{background:rgba(247,245,240,0.07);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);padding:8px 14px;border-bottom:none;}
+  .price-table tbody tr:not(.cat-row):hover td{background:rgba(247,245,240,0.04);}
+  @media (max-width:800px){.price-table{min-width:640px;}}
   @media (max-width:800px){.market-grid{grid-template-columns:1fr;}}
 
   .cta-section{background:var(--green-deep);color:var(--ivory);}
@@ -1136,6 +1146,59 @@
         </div>
       </div>
       <p class="market-note">Estos valores son de referencia y se actualizan a diario — consultame para el dato del día antes de operar. Mercadovisión (conducido por Silvio Baiocco, con Alfredo Guarino, Julio Boutet y Javier Lauria) cubre el MAG y remates feria de todo el país de lunes a viernes de 7 a 10 hs por Canal Rural, y a diario por Instagram <a href="https://www.instagram.com/mercadovisiontv/" target="_blank" rel="noopener">@mercadovisiontv</a>.</p>
+    </div>
+
+    <div class="market-panel price-panel reveal">
+      <div class="market-head">
+        <div>
+          <div class="market-eyebrow"><span class="live-dot"></span>Precios de Hacienda · Mercado Agroganadero de Cañuelas</div>
+          <div class="market-date">Rueda del viernes 04/09/2026</div>
+        </div>
+        <span class="market-source">Fuente: Mercadovisión</span>
+      </div>
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr><th>Categoría</th><th>Mínimo</th><th>Corriente</th><th>Máximo</th><th>Kilos</th></tr>
+          </thead>
+          <tbody>
+            <tr class="cat-row"><td colspan="5">Novillos</td></tr>
+            <tr><td>Novillos 431/460</td><td class="num">$4.400</td><td class="num">$4.600</td><td class="num">$4.720</td><td class="num">440 kg</td></tr>
+            <tr><td>Novillos 461/490</td><td class="num">$4.200</td><td class="num">$4.600</td><td class="num">$4.600</td><td class="num">478 kg</td></tr>
+            <tr><td>Novillos 491/520</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">$4.500</td><td class="num">500 kg</td></tr>
+            <tr><td>Novillos +520</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">$4.470</td><td class="num">534 kg</td></tr>
+            <tr><td>Novillos Reg.</td><td class="num">$3.800</td><td class="num">$4.200</td><td class="num muted">—</td><td class="num muted">—</td></tr>
+            <tr><td>N. Overos Negros +500</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">$3.500</td><td class="num">820 kg</td></tr>
+            <tr><td>N. Cruzas Índicas</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td></tr>
+            <tr><td>N. Cruzas Europeas</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td></tr>
+
+            <tr class="cat-row"><td colspan="5">Novillitos</td></tr>
+            <tr><td>Novillitos 300/350</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">$5.200</td><td class="num">330 kg</td></tr>
+            <tr><td>Novillitos 351/390</td><td class="num">$4.700</td><td class="num">$5.200</td><td class="num">$5.200</td><td class="num">378 kg</td></tr>
+            <tr><td>Novillitos 391/430</td><td class="num">$4.500</td><td class="num">$4.800</td><td class="num">$4.920</td><td class="num">414 kg</td></tr>
+            <tr><td>Novillitos Reg.</td><td class="num">$4.200</td><td class="num">$4.500</td><td class="num muted">—</td><td class="num muted">—</td></tr>
+
+            <tr class="cat-row"><td colspan="5">Vaquillonas</td></tr>
+            <tr><td>Vaquillona 300/350</td><td class="num">$4.800</td><td class="num">$5.000</td><td class="num">$5.200</td><td class="num">311 kg</td></tr>
+            <tr><td>Vaquillona 351/390</td><td class="num">$4.300</td><td class="num">$4.700</td><td class="num">$4.800</td><td class="num">355 kg</td></tr>
+            <tr><td>Vaquillona 391/430</td><td class="num muted">—</td><td class="num muted">—</td><td class="num">$4.500</td><td class="num">420 kg</td></tr>
+            <tr><td>Vaquillona Reg.</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td><td class="num muted">—</td></tr>
+
+            <tr class="cat-row"><td colspan="5">Vacas</td></tr>
+            <tr><td>Vacas Buenas/Esp.</td><td class="num">$3.300</td><td class="num">$3.700</td><td class="num">$4.400</td><td class="num">435 kg</td></tr>
+            <tr><td>Vacas Reg.</td><td class="num">$3.000</td><td class="num">$3.300</td><td class="num muted">—</td><td class="num muted">—</td></tr>
+
+            <tr class="cat-row"><td colspan="5">Conserva</td></tr>
+            <tr><td>Vacas Cons. Buena</td><td class="num">$2.700</td><td class="num">$2.800</td><td class="num">$3.000</td><td class="num muted">—</td></tr>
+            <tr><td>Vacas Cons. Infer.</td><td class="num">$2.600</td><td class="num">$2.700</td><td class="num muted">—</td><td class="num muted">—</td></tr>
+
+            <tr class="cat-row"><td colspan="5">Toros</td></tr>
+            <tr><td>Toros Buenos/Esp.</td><td class="num">$3.300</td><td class="num">$3.700</td><td class="num">$3.800</td><td class="num">860 kg</td></tr>
+            <tr><td>Toros Reg.</td><td class="num">$3.000</td><td class="num">$3.300</td><td class="num muted">—</td><td class="num muted">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="market-note">Precios de hacienda del Mercado Agroganadero de Cañuelas (MAG) para la rueda del viernes 04/09/2026, en pesos por kilo vivo. Valores de referencia — consultame para el dato del día antes de operar.</p>
     </div>
   </div>
 </section>
