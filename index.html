@@ -416,6 +416,14 @@
   .cred .num{font-family:'Source Serif 4',serif;font-size:1.7rem;font-weight:600;color:var(--green);}
   .cred .lbl{margin-top:4px;font-size:.82rem;color:var(--graphite-soft);line-height:1.4;}
 
+  /* ---------- video presentación ---------- */
+  .intro-video .wrap{display:grid;grid-template-columns:1fr minmax(0,400px);gap:72px;align-items:center;}
+  .intro-video .section-head{margin-bottom:0;}
+  .ig-frame{width:100%;max-width:400px;justify-self:center;}
+  .ig-frame iframe{display:block;width:100%;height:720px;border:1px solid var(--border);border-radius:4px;background:var(--white);}
+  @media (max-width:520px){.ig-frame iframe{height:620px;}}
+  @media (max-width:900px){.intro-video .wrap{grid-template-columns:1fr;gap:40px;}}
+
   /* ---------- services ---------- */
   .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
   .service{background:var(--white);padding:38px 32px;transition:background .25s ease;}
@@ -750,6 +758,7 @@
       <li><a href="#inmuebles">Inmuebles Rurales</a></li>
       <li><a href="#hacienda">Hacienda</a></li>
       <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#video">Video</a></li>
       <li><a href="#zonas">Zonas</a></li>
     </ul>
     <a href="#contacto" class="nav-cta">Consultar</a>
@@ -772,6 +781,7 @@
       <a href="#inmuebles">Inmuebles Rurales</a>
       <a href="#hacienda">Hacienda</a>
       <a href="#sobre-mi">Sobre mí</a>
+      <a href="#video">Video</a>
       <a href="#zonas">Zonas</a>
     </nav>
     <a href="#contacto" class="nav-cta">Consultar</a>
@@ -853,6 +863,19 @@
         <div class="cred"><div class="num"><b class="counter" data-target="3" data-suffix="%">0</b></div><div class="lbl">comisión estándar al boleto</div></div>
         <div class="cred"><div class="num"><b class="counter" data-target="100" data-suffix="%">0</b></div><div class="lbl">documentación al día</div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro-video" id="video">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Conocé a Fabio</div>
+      <h2>Fabio se presenta.</h2>
+      <p>Quién es, cómo trabaja y qué puede hacer por tu campo o tu hacienda, contado por él mismo.</p>
+    </div>
+    <div class="ig-frame reveal d2">
+      <iframe src="https://www.instagram.com/p/DeCROjyxAmr/embed/" title="Fabio Pirchio se presenta" loading="lazy" allowfullscreen scrolling="no"></iframe>
     </div>
   </div>
 </section>
